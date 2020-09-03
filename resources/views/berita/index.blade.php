@@ -1,13 +1,12 @@
 @extends('layout')
 
-@section('Title', 'Daftar Berita Terkini')
+@section('title', 'Daftar Berita Terkini')
 
 @section('content')
 <main role="main">
    <div class="pt-5">
       <div class="pt-3">
          <div class="container">
-            
             <div class="card">
                <div class="card-header">
                   <h3 class="card-title d-inline">
