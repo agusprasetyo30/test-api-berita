@@ -23,23 +23,23 @@
                         </div>
                      </div>
                   </div>
-                  <div class="row mt-3 justify-content-center">
-                     @foreach ($coba as $data)
+                  <div class="row mt-4 justify-content-center">
+                     @foreach ($get_data as $data)
                         <div class="col-md-11">
                            <div class="media">
                               <img src="{{ asset('img/no-image.jpg') }}" class="align-self-start mr-3" height="110" alt="...">
                               <div class="media-body">
-                                 <a href="#">
-                                    <h3 class="font-weight-bold">61 huruf</h3>
+                                 <a href="{{ route('berita.detail', $data['slug']) }}">
+                                    {{-- 61 huruf --}}
+                                    <h3 class="font-weight-bold">{{ $data['judul'] }}</h3>
                                  </a>
-                                 <small>10 September 2020</small>
-                                 <p>180 huruf</p>
+                                 <small>{{ date('d', strtotime($data['tanggal'])) . ' ' . convertBulan(date('m', strtotime($data['tanggal']))) . ' ' . date('Y', strtotime($data['tanggal']))}}</small>
                               </div>
                            </div>
                            <hr>
                         </div>
                      @endforeach
-                     {{ $coba->links() }}
+                     {{ $get_data->links() }}
                   </div>
                </div>
             </div>

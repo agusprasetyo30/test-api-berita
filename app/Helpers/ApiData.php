@@ -9,17 +9,11 @@
        *
        * @return void
        */
-      private function getDataAPI()
+      public function getDataAPI()
       {
          $data_api = collect(Http::get('https://sumedangkab.go.id/berita/apisumedangkab')->json());
          
          return $data_api;
-      }
-
-      
-      public function getData()
-      {
-         return $this->getDataAPI();
       }
    }
 ?>

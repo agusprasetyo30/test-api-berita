@@ -17,4 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/berita', 'BeritaController@index')->name('berita');
+Route::get('/berita', 'BeritaController@index')->name('berita.index');
+Route::get('/berita/{slug}', 'BeritaController@detail')->name('berita.detail');
