@@ -23,7 +23,9 @@
                      {!! $detail_berita['isi'] !!}
                   </div>
 
-                  <small>Penulis : {{ $detail_berita['penulis'] }}</small>
+                  <div>
+                     <small>Penulis : {{ $detail_berita['penulis'] }}</small>
+                  </div>
                </div>
             </div>
             

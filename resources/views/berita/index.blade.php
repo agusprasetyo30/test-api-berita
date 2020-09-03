@@ -16,10 +16,12 @@
                <div class="card-body">
                   <div class="row">
                      <div class="col-md-4 ml-auto">
-                        <div class="input-group">
-                           <input type="search" class="form-control" name="search" placeholder="Cari judul berita">
-                           <input type="submit" class="btn btn-success" value="Cari">
-                        </div>
+                        <form action="{{ route('berita.index') }}" method="get">
+                           <div class="input-group">
+                              <input type="search" class="form-control" name="q" value="{{ Request::get('q') }}" placeholder="Cari judul berita">
+                              <input type="submit" class="btn btn-success" value="Cari">
+                           </div>
+                        </form>
                      </div>
                   </div>
                   <div class="row mt-4 justify-content-center">
@@ -38,7 +40,7 @@
                            <hr>
                         </div>
                      @endforeach
-                     {{ $get_data->links() }}
+                     {{ $get_data->appends(Request::all())->links() }}
                   </div>
                </div>
             </div>
