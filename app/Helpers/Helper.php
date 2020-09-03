@@ -13,17 +13,18 @@
     * @param [type] $pageSize : Jumlah yang akan ditampilkan
     * @return void
     */
-   function customPaginate(Collection $results, $pageSize)
-   {
-      $page = Paginator::resolveCurrentPage('page');
-      
-      $total = $results->count();
+   if (!function_exists('customPaginate')) {
+      function customPaginate(Collection $results, $pageSize)
+      {
+         $page = Paginator::resolveCurrentPage('page');
+         
+         $total = $results->count();
 
-      return paginator($results->forPage($page, $pageSize), $total, $pageSize, $page, [
-         'path' => Paginator::resolveCurrentPath(),
-         'pageName' => 'page',
-      ]);
-
+         return paginator($results->forPage($page, $pageSize), $total, $pageSize, $page, [
+            'path' => Paginator::resolveCurrentPath(),
+            'pageName' => 'page',
+         ]);
+      }
    }
 
    /**
@@ -36,20 +37,22 @@
     * @param [type] $options
     * @return void
     */
-   function paginator($items, $total, $perPage, $currentPage, $options)
-   {
-      return Container::getInstance()->makeWith(LengthAwarePaginator::class, compact(
-         'items', 'total', 'perPage', 'currentPage', 'options'
-      ));
+   if (!function_exists('paginator')) {
+      function paginator($items, $total, $perPage, $currentPage, $options)
+      {
+         return Container::getInstance()->makeWith(LengthAwarePaginator::class, compact(
+            'items', 'total', 'perPage', 'currentPage', 'options'
+         ));
+      }
    }
 
+   /**
+    * untuk mengkonversi bulan
+   *
+   * @param [type] $nomorBulan
+   * @return void
+   */
    if (!function_exists('convertBulan')) {
-      /**
-       * untuk mengkonversi bulan
-      *
-      * @param [type] $nomorBulan
-      * @return void
-      */
       function convertBulan($nomorBulan) 
       {
          if ($nomorBulan == 1) {
